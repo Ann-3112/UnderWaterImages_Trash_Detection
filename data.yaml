@@ -1,0 +1,33 @@
+# --- YOLOv8 Dataset Configuration ---
+
+# 1. Path to the dataset folder
+# "." means the current folder where you run the script
+path: ./yolo_dataset
+
+# 2. Subfolders containing images
+# We use the training images for validation too, since we didn't split them earlier
+train: train/images
+val: train/images
+
+# 3. Number of classes (There are 16 types of objects in the material dataset)
+nc: 16
+
+# 4. Class Names
+# These match the IDs from the TrashCAN dataset
+names:
+  0: rov
+  1: plant
+  2: animal_fish
+  3: animal_starfish
+  4: animal_shells
+  5: animal_crab
+  6: animal_eel
+  7: animal_etc
+  8: trash_etc
+  9: trash_fabric
+  10: trash_fishing_gear
+  11: trash_metal
+  12: trash_paper
+  13: trash_plastic
+  14: trash_rubber
+  15: trash_wood

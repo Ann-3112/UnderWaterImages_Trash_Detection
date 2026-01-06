@@ -1,0 +1,37 @@
+# --- Python & Virtual Environments ---
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+
+# --- Datasets (CRITICAL TO IGNORE) ---
+dataset/
+yolo_dataset/
+material_version/
+instance_version/
+train/
+val/
+train_enhanced/
+original_data/
+
+# --- Training Outputs & Logs ---
+runs/
+
+# --- Large Binary Files (Models & Archives) ---
+# We ignore these because they are too big for standard Git
+*.pt
+*.zip
+
+# --- Web App User Data ---
+# Ignore the images inside these folders, but keep the folders themselves
+static/uploads/*
+!static/uploads/.gitkeep
+static/outputs/*
+!static/outputs/.gitkeep
+
+# --- IDE & System Files ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
