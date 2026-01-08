@@ -17,7 +17,7 @@ def apply_clahe_enhancement():
     image_files = [f for f in os.listdir(INPUT_FOLDER) if f.lower().endswith(('.jpg', '.png', '.jpeg'))]
     
     if len(image_files) == 0:
-        print("❌ Error: No images found in the folder.")
+        print("❌ Error: No images found in the folder")
         return
 
     print(f"🌊 Found {len(image_files)} images. Starting Underwater Enhancement...")
