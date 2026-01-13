@@ -13,7 +13,7 @@ OUTPUT_FOLDER = "static/outputs"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-# --- MODEL LOADING LOGIC ---
+# -- MODEL LOADING LOGIC --
 # UPDATED: Look for the file you downloaded from Colab in the root folder
 TRAINED_MODEL_PATH = "best.pt"
 FALLBACK_MODEL_PATH = "yolov8n.pt"
