@@ -28,7 +28,7 @@ else:
 
 def enhance_image(image_path, output_path):
     """
-    Applies CLAHE enhancement to the uploaded image.
+    Applies CLAHE(Contrast Limited Adaptive Histogram Equalization) enhancement to the uploaded image.
     """
     img = cv2.imread(image_path)
     if img is None:
