@@ -5,11 +5,11 @@ from tqdm import tqdm
 
 # --- CONFIGURATION ---
 # Check your file structure to ensure these paths match exactly
-SOURCE_JSON = "dataset/material_version/instances_train_trashcan.json"
-SOURCE_IMAGES_DIR = "dataset/material_version/train" 
+SOURCE_JSON = "models/Dataset/dataset/material_version/instances_train_trashcan.json"
+SOURCE_IMAGES_DIR = "models/Dataset/dataset/material_version/train" 
 
 # This is where the new YOLO data will be created
-DEST_BASE = "yolo_dataset"
+DEST_BASE = "models/Dataset/dataset/material_version"
 DEST_IMAGES = os.path.join(DEST_BASE, "train", "images")
 DEST_LABELS = os.path.join(DEST_BASE, "train", "labels")
 
