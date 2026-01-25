@@ -129,6 +129,8 @@ def detect():
         enhanced_img=web_enhanced_path,
         output_img=web_output_path,
         results=detections,
+        # counts=class_counts
+        
         counts=class_counts
     )
 

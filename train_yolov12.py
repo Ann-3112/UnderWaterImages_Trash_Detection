@@ -35,6 +35,7 @@ def train_yolov12(
             imgsz=imgsz,
             batch=batch,
             project=project,
+            # name=name,
             name=name,
             plots=True,
             save=True,
