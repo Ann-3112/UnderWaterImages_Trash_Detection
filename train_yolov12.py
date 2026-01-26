@@ -40,7 +40,7 @@ def train_yolov12(
             save=True,
         )
 
-        print("\n✅ Training completed successfully!")
+        print("\n✅ Training completed successfully!!")
         print(f"📄 Results saved to: {project}/{name}")
         print(f"🏆 Best model: {project}/{name}/weights/best.pt")
 
@@ -56,7 +56,7 @@ def train_yolov12(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train YOLOv12 model")
+    parser = argparse.ArgumentParser(description="Train YOLOv12 model ")
 
     parser.add_argument("--data", type=str, default="data.yaml")
     parser.add_argument("--epochs", type=int, default=50)
