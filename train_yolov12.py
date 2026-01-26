@@ -13,8 +13,9 @@ def train_yolov12(
     name="yolov12_trash_main",
 ):
     """
-    Train YOLOv12 model on custom dataset.
-    
+    Train YOLOv12 model on custom datasets.
+
+
     """
 
     print(f"\n🚀 Initializing Training for Model: {model_name}")
