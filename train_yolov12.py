@@ -40,8 +40,9 @@ def train_yolov12(
             save=True,
         )
 
-        print("\n✅ Training completed successfully!!")
-        print(f"📄 Results saved to: {project}/{name}")
+        # print("\n✅ Training completed successfully!!!")
+        print("\n✅ Training completed successfully!!!")
+        print(f"📄 Results saved to: {project}/{name}.")
         print(f"🏆 Best model: {project}/{name}/weights/best.pt")
 
         return results
