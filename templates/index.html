@@ -236,12 +236,19 @@
 
     <section class="card">
       <form action="/detect" method="POST" enctype="multipart/form-data">
+        <div style="margin-bottom: 20px; text-align: center;">
+          <label for="model-select" style="color: var(--text-dim); font-size: 1rem; margin-right: 10px;">Select Model:</label>
+          <select id="model-select" name="model" style="background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-main); padding: 10px; border-radius: 10px; font-size: 1rem;">
+            <option value="yolov8">YOLOv8</option>
+            <option value="yolov12">YOLOv12</option>
+          </select>
+        </div>
         <div class="upload-box" onclick="document.getElementById('actual-btn').click()">
           <i class="fa-solid fa-circle-plus" style="font-size: 2rem; color: #ff0080; margin-bottom: 15px;"></i>
           <p id="file-chosen">Select or drop underwater image</p>
           <input type="file" id="actual-btn" name="image" hidden required onchange="displayFileName()"/>
         </div>
-        
+
         <button type="submit" class="btn">Enhance + Detect</button>
       </form>
 

@@ -9,6 +9,7 @@ path: ./models/Dataset/dataset/material_version
 train: train
 val: val
 
+
 # 3. Number of classes (There are 16 types of objects in the material dataset)
 nc: 16
 
