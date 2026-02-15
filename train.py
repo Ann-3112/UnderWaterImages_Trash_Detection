@@ -33,7 +33,7 @@ def start_training():
     print("\n✅ Training Finished!")
     print("---------------------------------------------------------")
     print("YOUR MODEL IS SAVED AT:")
-    print("runs/detect/trash_training_run/weights/best.pt")
+    print("runs/detect/trash_training_run/weights/yolov8_best.pt")
     print("---------------------------------------------------------")
 
 if __name__ == "__main__":

@@ -2,22 +2,31 @@ import os
 import argparse
 from ultralytics import YOLO
 
-def train_yolov12(data='data.yaml', epochs=50, imgsz=640, batch=8, model_name='yolov12s.pt', project='runs/detect', name='yolov12_trash_main'):
-    """
-    Trains a YOLOv12 model using Ultralytics.
-    Ensure that you have the latest version of ultralytics installed or the custom YOLOv12 weights available.
-    """
-    print(f"🚀 Initializing Training for Model: {model_name}")
 
-    # Verify model existence
-    if not os.path.exists(model_name):
-        print(f"⚠️ Model file '{model_name}' not found locally. Attempting to download via Ultralytics...")
-    
+def train_yolov12(
+    data="data.yaml",
+    epochs=50,
+    imgsz=640,
+    batch=8,
+    model_name="yolov12s.pt",
+    project="runs/detect",
+    name="yolov12_trash_main",
+):
+    """
+    Train YOLOv12 model on custom dataset.
+    """
+
+    print(f"\n🚀 Initializing Training for Model: {model_name}")
+
+    if not os.path.exists(data):
+        print(f"❌ Dataset config '{data}' not found.")
+        return
+
     try:
-        # Load the model
         model = YOLO(model_name)
-        
-        print(f"📈 Starting training for {epochs} epochs...")
+
+        print(f"📈 Starting training for {epochs} epochs...\n")
+
         results = model.train(
             data=data,
             epochs=epochs,
@@ -26,38 +35,43 @@ def train_yolov12(data='data.yaml', epochs=50, imgsz=640, batch=8, model_name='y
             project=project,
             name=name,
             plots=True,
-            save=True
+            save=True,
         )
-        print("✅ Training completed successfully!")
-        print(f"📄 Results saved to {project}/{name}")
+
+        print("\n✅ Training completed successfully!")
+        print(f"📄 Results saved to: {project}/{name}")
+        print(f"🏆 Best model: {project}/{name}/weights/best.pt")
+
         return results
 
     except Exception as e:
         import traceback
         traceback.print_exc()
-        print(f"❌ Training failed: {e}")
-        print("💡 Suggestion: Ensure 'ultralytics' is up to date (pip install -U ultralytics).")
-        print("   If using a custom YOLOv12 model, ensure the .pt file is in the correct path completely.")
+        print(f"\n❌ Training failed: {e}")
+        print("💡 Make sure ultralytics is installed:")
+        print("   pip install ultralytics")
         return None
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Train YOLOv12 specific model')
-    parser.add_argument('--data', type=str, default='data.yaml', help='Path to data.yaml')
-    parser.add_argument('--epochs', type=int, default=50, help='Number of epochs')
-    parser.add_argument('--imgsz', type=int, default=640, help='Image size')
-    parser.add_argument('--batch', type=int, default=8, help='Batch size')
-    parser.add_argument('--model', type=str, default='yolov12s.pt', help='Model file (e.g., yolov12n.pt, yolov12s.pt)')
-    parser.add_argument('--project', type=str, default='runs/detect', help='Project name')
-    parser.add_argument('--name', type=str, default='yolov12_trash_main', help='Run name')
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Train YOLOv12 model")
+
+    parser.add_argument("--data", type=str, default="data.yaml")
+    parser.add_argument("--epochs", type=int, default=50)
+    parser.add_argument("--imgsz", type=int, default=640)
+    parser.add_argument("--batch", type=int, default=8)
+    parser.add_argument("--model", type=str, default="yolov12s.pt")
+    parser.add_argument("--project", type=str, default="runs/detect")
+    parser.add_argument("--name", type=str, default="yolov12_trash_main")
 
     args = parser.parse_args()
-    
+
     train_yolov12(
         data=args.data,
         epochs=args.epochs,
         imgsz=args.imgsz,
         batch=args.batch,
         model_name=args.model,
-            project='runs/detect',
-            name='yolov12_trash_main',
+        project=args.project,
+        name=args.name,
     )
