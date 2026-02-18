@@ -4,7 +4,7 @@ import shutil
 from tqdm import tqdm
 
 # --- CONFIGURATION ---
-# Check your file structure to ensure these paths match exactly
+# Check your file structure to ensure these paths match correct
 SOURCE_JSON = "models/Dataset/dataset/material_version/instances_train_trashcan.json"
 SOURCE_IMAGES_DIR = "models/Dataset/dataset/material_version/train" 
 
