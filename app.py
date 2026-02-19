@@ -118,7 +118,7 @@ def detect():
 
     print(f"Detection Complete with {selected_model}: {class_counts}")
 
-    # ---------- FIX PATHS ----------
+    # ---------- FIX PATHS ------------
     web_input_path = "/" + input_path.replace("\\", "/")
     web_enhanced_path = "/" + enhanced_path.replace("\\", "/")
     web_output_path = "/" + detected_path.replace("\\", "/")
