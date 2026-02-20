@@ -87,7 +87,7 @@ def detect():
     enhance_image(input_path, enhanced_path)
 
     # ---------- DETECTION ----------
-    # YOLOv12 needs lower confidence
+    # YOLOv12 needs lower confidence score
     conf_val = 0.25 if selected_model == "yolov8" else 0.1
 
     # Predict on original image (more stable version)
