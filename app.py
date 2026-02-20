@@ -90,7 +90,7 @@ def detect():
     # YOLOv12 needs lower confidence
     conf_val = 0.25 if selected_model == "yolov8" else 0.1
 
-    # Predict on original image (more stable)
+    # Predict on original image (more stable version)
     results = model.predict(input_path, conf=conf_val, iou=0.45)
 
     # ---------- SAVE RESULT ----------
