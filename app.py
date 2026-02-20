@@ -100,7 +100,7 @@ def detect():
     res_plotted = results[0].plot()
     cv2.imwrite(detected_path, res_plotted)
 
-    # ---------- EXTRACT DATA ----------
+    # ---------- EXTRACT DATA -----------
     detections = []
     class_counts = {}
 
