@@ -80,7 +80,7 @@ def detect():
     input_path = os.path.join(UPLOAD_FOLDER, filename)
     file.save(input_path)
 
-    # ---------- CLAHE ----------
+    # ---------- CLAHE(Contrast Limited Adaptive Histogram Equalization)----------
     enhanced_filename = "enhanced_" + filename
     enhanced_path = os.path.join(OUTPUT_FOLDER, enhanced_filename)
 
