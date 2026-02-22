@@ -3,17 +3,17 @@ import argparse
 from ultralytics import YOLO
 
 
-def train_yolov12(
+def train_yolov11(
     data="data.yaml",
     epochs=50,
     imgsz=640,
     batch=8,
-    model_name="yolov12s.pt",
+    model_name="yolov11s.pt",
     project="runs/detect",
-    name="yolov12_trash_main",
+    name="yolov11_trash_main",
 ):
     """
-    Train YOLOv12 model on custom datasets.
+    Train YOLOv11 model on custom datasets.
 
 
     """
@@ -26,6 +26,8 @@ def train_yolov12(
 
     try:
         model = YOLO(model_name)
+        print(f"DEBUG: model type is {type(model)}")
+        print(f"DEBUG: model has train: {hasattr(model, 'train')}")
 
         print(f"📈 Starting training for {epochs} epochs...\n")
 
@@ -35,7 +37,6 @@ def train_yolov12(
             imgsz=imgsz,
             batch=batch,
             project=project,
-            # name=name,
             name=name,
             plots=True,
             save=True,
@@ -45,6 +46,10 @@ def train_yolov12(
         print("\n✅ Training completed successfully!!!")
         print(f"📄 Results saved to: {project}/{name}.")
         print(f"🏆 Best model: {project}/{name}/weights/best.pt")
+        
+        # Verify classes
+        print(f"📊 Model Class Names: {model.names}")
+        print(f"✅ Number of classes: {len(model.names)}")
 
         return results
 
@@ -58,7 +63,7 @@ def train_yolov12(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train YOLOv12 model ")
+    parser = argparse.ArgumentParser(description="Train YOLOv11 model ")
 
     parser.add_argument("--data", type=str, default="data.yaml")
     parser.add_argument("--epochs", type=int, default=50)
@@ -70,7 +75,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    train_yolov12(
+    train_yolov11(
         data=args.data,
         epochs=args.epochs,
         imgsz=args.imgsz,
