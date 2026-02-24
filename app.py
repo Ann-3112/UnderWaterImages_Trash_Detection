@@ -24,7 +24,7 @@ except Exception as e:
     print(f"Stock YOLOv8 failed to load: {e}")
     models["yolov8"] = None
 
-# --- Load YOLOv12 (Your Custom Model) ---
+# --- Load YOLOv11 (Your Custom Model) ---
 YOLOV11_TRAINED_PATH = "best_yolov11.pt"
 try:
     if os.path.exists(YOLOV11_TRAINED_PATH):
@@ -74,7 +74,7 @@ def detect():
         return "No file selected", 400
 
     # Determine which model to use
-    selected_model_key = request.form.get("model", "yolov12")
+    selected_model_key = request.form.get("model", "yolov11")
     model = models.get(selected_model_key)
 
     # If custom model is missing, show a beautiful error screen instead of crashing
@@ -88,10 +88,10 @@ def detect():
             <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); text-align: left; max-width: 600px; line-height: 1.6;">
                 <h3 style="color: #39ff14; margin-bottom: 10px;">How to fix this:</h3>
                 <ol style="margin-left: 20px; color: #e0e0e0;">
-                    <li>Go to your <code>runs/detect/yolov12_trash_main/weights/</code> folder.</li>
+                    <li>Go to your <code>runs/detect/yolov11_trash_main/weights/</code> folder.</li>
                     <li>Copy the file named <code>best.pt</code>.</li>
                     <li>Paste it into your main project folder (right next to <code>app.py</code>).</li>
-                    <li>Rename that file to exactly <code>best_yolov12.pt</code>.</li>
+                    <li>Rename that file to exactly <code>best_yolov11.pt</code>.</li>
                     <li>Restart your Flask app.</li>
                 </ol>
             </div>

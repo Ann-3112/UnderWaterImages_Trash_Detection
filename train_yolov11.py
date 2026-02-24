@@ -69,9 +69,9 @@ if __name__ == "__main__":
     parser.add_argument("--epochs", type=int, default=50)
     parser.add_argument("--imgsz", type=int, default=640)
     parser.add_argument("--batch", type=int, default=8)
-    parser.add_argument("--model", type=str, default="yolov12s.pt")
+    parser.add_argument("--model", type=str, default="yolov11s.pt")
     parser.add_argument("--project", type=str, default="runs/detect")
-    parser.add_argument("--name", type=str, default="yolov12_trash_main")
+    parser.add_argument("--name", type=str, default="yolov11_trash_main")
 
     args = parser.parse_args()
 

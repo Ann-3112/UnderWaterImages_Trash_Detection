@@ -1,7 +1,7 @@
 train: /content/dataset/instance_version/train/images
 val: /content/dataset/instance_version/val/images
 
-nc: 22
+nc: 16
 
 names:
 - rov
@@ -12,17 +12,11 @@ names:
 - animal_crab
 - animal_eel
 - animal_etc
-- trash_clothing
-- trash_pipe
-- trash_bottle
-- trash_bag
-- trash_snack_wrapper
-- trash_can
-- trash_cup
-- trash_container
-- trash_unknown_instance
-- trash_branch
-- trash_wreckage
-- trash_tarp
-- trash_rope
-- trash_net
+- trash_etc
+- trash_fabric
+- trash_fishing_gear
+- trash_metal
+- trash_paper
+- trash_plastic
+- trash_rubber
+- trash_wood
