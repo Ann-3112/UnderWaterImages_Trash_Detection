@@ -112,9 +112,9 @@ def detect():
 
     # ---------------------------------------------------------
     # PREDICT: 
-    # We use the clear input_path so it doesn't get confused by the gray filter.
-    # We use conf=0.10 behind the scenes so it actually catches all the items.
-    results = model.predict(input_path, conf=0.10, iou=0.45, augment=True)
+    # We use enhanced_path because the model was trained on CLAHE-enhanced images.
+    # We use conf=0.25 as a standard production threshold to reduce noise.
+    results = model.predict(enhanced_path, conf=0.25, iou=0.45, augment=True)
     # ---------------------------------------------------------
 
     # Prepare to draw custom bounding boxes
@@ -131,10 +131,9 @@ def detect():
         # Safely pull the name from the model's memory
         cls_name = model.names.get(cls_id, f"unknown_class_{cls_id}")
 
-        # --- PRESENTATION TRICK: BOOST CONFIDENCE ---
-        # This artificially pushes a 20% detection up to ~85% for display purposes.
-        # It maxes out at 0.99 (99%) so it looks realistic.
-        display_conf = min(0.99, raw_conf + 0.65) 
+        # --- DISPLAY RAW CONFIDENCE ---
+        # We removed the artificial +0.65 boost to show true model certainty.
+        display_conf = raw_conf 
 
         # Draw the custom bounding box on the image
         box_color = (0, 255, 0) # Green box
